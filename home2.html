@@ -11,11 +11,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>About Us</title>
+    <title>9T9 Solutions</title>
+
 
     <style>
-        /*animation part*/
+        /* /animation part/ */
           h2 {
+      margin-top: 100px;
       position: relative;
       animation: moveToCenter 4s ease forwards; /* Set just one animation property */
 }
@@ -35,6 +37,21 @@
 }
 
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.about {
+  flex-grow: 1;  /* Takes up remaining space */
+}
+
+.rating {
+  margin-top: 0;
+  margin-left: auto;  /* Pushes rating to the right */
+  margin-right: 20px;
+}
 
       .about{
         font-family: Manrope, "Manrope Placeholder", sans-serif;
@@ -43,9 +60,8 @@
         line-height: 25px;
         color:black;
         margin-top: 50px;
-        margin-left: 80px;
-        margin-bottom: 185px;
-        max-width: 800px;
+        margin-left: 90px;
+        margin-bottom: 25px;
       }
       .headline{
         font-family: Manrope, "Manrope Placeholder", sans-serif;
@@ -54,7 +70,6 @@
         line-height: 77px;
         color: black;
         margin-bottom: 20px;
-        margin-top: 20px;
       }
       .about .para{
         font-family: Manrope, "Manrope Placeholder", sans-serif;
@@ -73,17 +88,6 @@
 
       }
 
-      .mission-con{
-        margin-bottom: 100px;
-      }
-      .mission-con p{
-        margin-top: 100px; 
-        margin-bottom: 50px;  
-        color: #2C2C2C; 
-        font-size: 16px; 
-        font-weight: 500; 
-        line-height:22px;
-      }
       .mission-1{
         margin-top: 100px;
         margin-left: 20px;
@@ -114,138 +118,140 @@
         margin-top: 70px;
         margin-left: 100px;
         width: 85vw;
-        height: auto;
+        height: 90vh;
         border-radius: 15px;
         margin-bottom: 100px;
       }
 
 
-      /****************Mobile View*******************/
-@media screen and (max-width: 767px) {
-    .headline{
-    font-size: 32px;
-    line-height: 1.2em;
-  }
-  .about{
-    margin-right: 25px;
-    margin-left: 20px;
-    margin-bottom: 100px;
-  }
-  .about .para{
-    font-size: 22px;
-    line-height: 30px;
-  }
-  .featurette-heading{
-    font-size: 26px;
-  }
-  .mission-con p{
-        margin-top: 50px; 
-        margin-bottom: 0px;  
-    }
-    .mission-1{
-        margin-top: 20px;
-        font-size: 26px;
-        line-height: 35px;
-        margin-bottom: 10px !important;
-    }
-    .mission-2{
-        font-size: 26px;
-        line-height: 35px;
-    }
-    .mission-3{
-        font-size: 26px;
-        line-height: 35px;
-    }
-    .missin-image{
-        margin-top: 0px;
-        margin-left: 30px;
-      }
-      .about-img{
-        margin-left: 20px;
-        margin-right: 20px;
-      }
+
+
+/*   rating section   */
+        .rating {
+  display: flex;
+  align-items: center;
 }
 
-/****************Tablet View*******************/
-@media (min-width: 767px) and (max-width: 1098px) {
-    .headline{
-    font-size: 52px;
-    line-height: 1.2em;
-  }
-  .about .para{
-    font-size: 26px;
-    line-height: 35px;
-  }
-  .about{
-    margin-right: 50px;
-    margin-left: 45px;
-    margin-bottom: 140px;
-  }
-    .mission-1{
-        margin-top: 50px;
-        font-size: 32px;
-        line-height: 40px;
-        margin-bottom: 10px !important;
-    }
-    .mission-2{
-        font-size: 32px;
-        line-height: 40px;
-    }
-    .mission-3{
-        font-size: 32px;
-        line-height: 40px;
-    }
-    .mission-con p{
-        margin-top: 50px; 
-    }
-    .missin-image{
-        margin-top: 0px;
-        margin-left: 50px;
-      }
-    }
-    .about-img{
-      height: 400px;
-      background-size: cover;
-      border-radius: 5px;
-    }
-    .about-img1{
-      background-image: url(images/about-5.JPG);
-    }
-    .about-img2{
-      background-image: url(images/about-3.JPG);
-    }
-    .about-img3{
-      background-image: url(images/about-4.JPG);
-    }
+.star-rating {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
 
-    </style>
+.star-rating:hover {
+  color: #ffc107;
+}
 
+.star-rating:hover .filled-stars {
+  width: 100%;
+  transition: width 0.2s ease;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star:hover {
+  color: #ffc107;
+}
+
+.star:hover ~ .star {
+  color: #ccc;
+}
+
+.star.rated {
+  color: #ffc107;
+}
+
+.star-rating::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.star-rating:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rating-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.animate {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo"><a href="home.html" style="color: #000; text-decoration: none;">9T9.<span style="font-size: 18px;">SOLUTIONS</span></a></div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a  href="contact.html" type="submit">Conatct </a></li>
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <img src="images/logo-2.JPG" style="width: 13vw; height: 52px; margin-left: 70px; margin-top: 20px;">
+
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item">
+        <a class="nav-link" style="color: #2C2C2C;" href="home.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" style="margin-left: 40px;">
+        <a class="nav-link" style="color: #2C2C2C;" href="about.php">About</a>
+      </li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
+    <form class="form-inline" style="margin-right: 75px;">
+        <a  href="contact.php" class="btn log" style="text-decoration: none;" type="submit">Ping </a>
+    </form> 
+  </div>
+</nav>
 
 
 <!-- section-1 -->
-<div class="about">
-    <p>About Us</p>
-    <h2 class="headline">Shaping your brand’s narrative, <span style="color: #909090;">uniquely.</span></h2>
-    <p class="para">We redefine possibility by combining imagination with precision to shape extraordinary experiences</p>
+<div class="AR">
+  <div class="flex-container">
+    <div class="about">
+      <p>About Us</p>
+      <h2 class="headline">Shaping your brand’s narrative, 
+        <br><span style="font-size: 65px; color: #909090; line-height: 77px;">uniquely.</span>
+      </h2>
+      <p class="para">We redefine possibility by combining imagination<br> with precision to shape extraordinary experiences</p>
+    </div>
+    <!-- rating section -->
+    <div class="rating">
+      <span class="star-rating">
+        <i class="star" data-rating="1">&#9733;</i>
+        <i class="star" data-rating="2">&#9733;</i>
+        <i class="star" data-rating="3">&#9733;</i>
+        <i class="star" data-rating="4">&#9733;</i>
+        <i class="star" data-rating="5">&#9733;</i>
+      </span>
+      <span class="rating-text">(4.5/5)</span>
+    </div>
+  </div>
 </div>
+
+
+
+<br><br><br><br><br><br>
+
 
 
 <div class="container my-4">
@@ -256,36 +262,43 @@ rgb(150, 150, 150);">My vision at 9T9: Creativity meets technology</span></h3>
                 <p class="lead">We aim to build lasting partnerships that drive innovation and elevate brands.</p>
                 <p style="font-size: 12px; "><i class="fas fa-dot-circle"></i> Founder's goal</p>
             </div>
-            <div class="col-md-5 order-md-1 about-img1 about-img">
-                
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/1.png" data-holder-rendered="true" style="width: 400px;
+                height: 400px;">
             </div>
         </div>
 
 <br><br><br><br><br><br>
 
-        <div class="row featurette d-flex justify-content-center align-items-center">
+
+ <div class="row featurette d-flex justify-content-center align-items-center">
             <div class="col-md-7">
               <h3 class="featurette-heading">Our team of creative experts at 9T9 <br>Solution<span style="color:
 rgb(150, 150, 150);"> ensures precise delivery on <br>every project.</span></h3>
                 
                 <p class="lead">Expertise meets creativity at 9T9 Solution, delivering precise <br>solutions tailored to your goals.</p>
             </div>
-            <div class="col-md-5 my-10 about-img2 about-img">
-                
+            <div class="col-md-5 my-10">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/about-3.jpg"
+                data-holder-rendered="true" style="width: 400px;
+                height: 400px;">
             </div>
         </div>
 
 <br><br><br><br><br><br>
 
-        <div class="row featurette d-flex justify-content-center align-items-center">
+
+<div class="row featurette d-flex justify-content-center align-items-center">
             <div class="col-md-7 order-md-2">
                 <h3 class="featurette-heading">At 9T9 Solution, we’re a team of ardent professionals
                   <span style="color:
 rgb(150, 150, 150);"> bringing ideas to life digitally.</span></h3>
                 <p class="lead">Our expertise spans graphic design, video editing, eCommerce, and web development, ensuring innovative solutions that drive success and elevate your brand.</p>
             </div>
-            <div class="col-md-5 order-md-1 about-img3 about-img">
-              
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/about-4.jpg"
+                data-holder-rendered="true" style="width: 400px;
+                height: 400px;">
             </div>
         </div>
     </div>
@@ -294,27 +307,28 @@ rgb(150, 150, 150);"> bringing ideas to life digitally.</span></h3>
 
 <hr style="width: 100%;">
 
+
+
 <!-- out mission -->
-<div class="container mission-con">
+<div class="container" style="margin-bottom: 100px;">
     
     <div class="row">
 
         <div class="col-sm-2">
           <div class="row">
             <div class="col-lg-12" style="font-family: Manrope, Manrope Placeholder, sans-serif" >
-              <p>Our Mission</p>
+              <p style=" margin-top: 100px; margin-bottom: 50px;  color: #2C2C2C; font-size: 16px; font-weight: 500; line-height:22px;">Our Mission</p>
             </div>
           </div>
         </div>
-  
 
         <div class="col-sm-10">
           <div class="row">
             <div class="col-lg-12">
               <h3 class="mission-1" style="margin-bottom:0px;">We believe in the power of design to inspire and make a meaningful impact.</h3>
               <h3 class="mission-2">We aim to transform ideas into captivating designs.</h3>
-              <h3 class="mission-3">We strive to bring creativity and functionality together,<span style="color: 
-rgb(150, 150, 150);"> crafting solutions that resonate with your audience. </span> </h3>
+              <h3 class="mission-3">We strive to bring creativity and functionality together,<span style=" font-size: 40px; font-weight: 500;  color: 
+rgb(150, 150, 150);"> crafting solutions that resonate with <br>your audience. </span> </h3>
             </div>
           </div>
         </div>
@@ -336,22 +350,26 @@ rgb(150, 150, 150);"> crafting solutions that resonate with your audience. </spa
 <div class="foot" style="  display: flex; justify-content: space-between; align-items: center;">
   <div class="footer-content">
     <p class="contact">Contact</p>
-    <h3 class="footer-head">Let's start creating together</h3>
-    <!-- <h3 class="text-1">Let's start </h3>
-    <h3 class="text-2">creating together</h3> -->
-    <a  href="contact.html" class="btn talk" style="text-decoration: none; background-color:#eeeeee ; color: #2C2C2C; border-radius: 30px; border: none; padding: 15px 22px 15px 22px; " type="submit">Let's talk <i class="fa fa-arrow-right"></i></a>
+    <h3 class="text-1">Let's start </h3>
+    <h3 class="text-2">creating together</h3>
+    <a  href="contact.html" class="btn talk" style="text-decoration: none; background-color:#eeeeee ; color: #2C2C2C; border-radius: 30px; border: none; padding: 15px 22px 15px 22px; margin-left: 105px; " type="submit">Let's talk <i class="fa fa-arrow-right"></i></a>
   </div>
 
   <div class="account" style=" align-items: center;">
-      <a href="https://www.facebook.com/share/aREExLzSco6J8H7d/?mibextid=qi2Omg" class="face" style=" text-align: right; color: #fff; margin-top: 0px; line-height: 55px;">Facebook </a><br>
-      <a href="https://www.instagram.com/9t9solutions?igsh=MW9jY2l4cTJzcW43aw==" class="insta" style="text-align: right; color: #fff;">Instagram </a>
-    </div>
+    <a href="https://www.facebook.com/share/aREExLzSco6J8H7d/?mibextid=qi2Omg" class="face" style=" text-align: right; text-decoration: none; color: white; line-height: 55px; ">Facebook </a><br>
+    <a href="https://www.instagram.com/9t9solutions?igsh=MW9jY2l4cTJzcW43aw=="  class="insta" style="text-align: right; text-decoration: none; color: white;">Instagram </a>
+  </div>
 </div>
 
 
-   <!-- Optional JavaScript -->
+
+
+
+  <script src="script.js"></script>
+
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
